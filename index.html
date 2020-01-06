@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>group debt reconciler</title>
+        <link rel = "stylesheet" type = "text/css" href = "style.css">
+    </head>
+    <body>
+        <h1>group debt reconciler</h1>
+        <p>
+            this web app allows you to create a group,<br>
+            record group expenses, and then calculate the smallest <br>
+            amount of payments to reconcile group debts.<br>
+        </p>
+
+        <header>1. group:</header>
+        <br>
+
+        <div class = "group">
+            name: <input id = "name" onfocus = "this.value=''"><button id = "add" onclick="addPerson();">add person</button>
+            <button id = "remove" onclick="removeLatest();">remove latest</button>
+            
+            <button onclick="location.reload();">reset</button>
+            
+
+            <ul id = "people">
+            </ul>
+            <button disabled = "true" id = "fg" onclick="finalizeGroup();">finalize group</button>
+            
+
+        </div>
+
+        <br>
+        
+        <header>2. expenses:</header>
+        <br>
+
+        <div class = "expenses">
+            description: <input disabled = "true" onfocus = "this.value=''" id = "event">
+            payed for by: <select disabled = "true" id = "payer">person</select>
+            amount($): <input disabled = "true" onfocus = "this.value=''" style = "width: 50px"id = "mon" type = "number">
+            <br><br>
+            for which people? 
+            <br><br>
+
+            <div id = "selector">
+
+            </div>
+            <br>
+            <button disabled = "true" id = "addExp" onclick="addExpense();">add expense</button>
+            <button disabled = "true" id = "removeExp" onclick="removeLatestExpense();">remove latest</button>
+            <ul id = "exp">
+
+            </ul>
+            <button disabled = "true" id = "fe"onclick="finalizeExpenses();">finalize expenses</button>
+
+        </div>
+        <br>
+
+        <header>3. debts:</header>
+        <br>
+        <button id = "calc" disabled = "true" onclick="calculateDebts();">even out debts</button>
+        <button id = "console" disabled = "true" onclick="consoleEverything();">console</button>
+        <div class = "payments">
+            
+            <p id = "pee"></p>
+            <ul id = "bals">
+            </ul>
+            
+            <p id = "par"></p>
+            <ul id = "pays">
+            </ul>
+        </div>
+        
+    </body>
+    <script src = "app.js"></script>
+</html>
